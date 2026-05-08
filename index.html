@@ -3,278 +3,490 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio Line India | License Command Center</title>
+    <title>SLI | PRO X ULTIMATE</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3595/3595030.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
         
         :root {
-            --bg-deep: #020617;
-            --card-bg: #0f172a;
-            --border: #1e293b;
-            --accent: #38bdf8;
-            --glow: rgba(56, 189, 248, 0.15);
+            --bg-deep: #05070A;
+            --card-bg: #0D1117;
+            --gold: #D4AF37;
         }
 
-        body { 
-            background-color: var(--bg-deep); 
-            color: #f1f5f9; 
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-image: radial-gradient(circle at top right, #1e1b4b, transparent);
+        body {
+            background-color: var(--bg-deep);
+            color: #94A3B8;
+            font-family: 'Inter', sans-serif;
             min-height: 100vh;
+            scroll-behavior: smooth;
         }
 
         .mono { font-family: 'JetBrains Mono', monospace; }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 4px; height: 4px; }
-        ::-webkit-scrollbar-track { background: var(--bg-deep); }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
-
-        .glass-card {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--border);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        .sidebar {
+            background: rgba(8, 10, 15, 0.8);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(255, 255, 255, 0.03);
         }
 
-        .db-row {
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(30, 41, 59, 0.5);
-        }
-        .db-row:hover {
-            background: rgba(56, 189, 248, 0.03);
-        }
-
-        .input-cyber {
-            background: #020617 !important;
-            border: 1px solid #1e293b !important;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .input-cyber:focus {
-            border-color: var(--accent) !important;
-            box-shadow: 0 0 15px var(--glow);
+        .cluster-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s ease;
         }
 
-        .btn-cyber {
-            background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-            transition: all 0.3s ease;
+        .hw-signature {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #CBD5E1;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            display: inline-block;
+            line-height: 1;
+            min-width: 100px;
+            text-align: center;
         }
-        .btn-cyber:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
-            filter: brightness(1.1);
-        }
-        .btn-cyber:active { transform: translateY(0); }
 
-        .status-pill {
+        .status-badge {
+            background: rgba(16, 185, 129, 0.08);
+            color: #10B981;
             padding: 4px 12px;
             border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-size: 10px;
+            font-weight: 800;
+            border: 1px solid rgba(16, 185, 129, 0.2);
         }
 
-        @media (max-width: 768px) {
-            .container { padding: 16px !important; }
-            .header-flex { flex-direction: column; align-items: flex-start !important; }
+        .btn-gold {
+            background: linear-gradient(to right, #D4AF37, #F9E076);
+            color: #000;
+            font-weight: 800;
+            transition: 0.3s;
         }
+
+        .input-dark {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .input-dark:focus { border-color: var(--gold); outline: none; }
+
+        .action-icon {
+            cursor: pointer;
+            transition: 0.2s;
+            padding: 8px;
+            border-radius: 6px;
+        }
+        .action-icon:hover { background: rgba(255,255,255,0.05); }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
     </style>
 </head>
-<body class="antialiased pb-20">
+<body class="flex">
 
-    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
-        <div class="header-flex flex flex-row justify-between items-center mb-10 gap-6">
-            <div>
-                <div class="flex items-center gap-3">
-                    <div class="h-10 w-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-900/20">
-                        <i class="fas fa-shield-halved text-white text-lg"></i>
-                    </div>
-                    <div>
-                        <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">
-                            Album X <span class="text-blue-500">PRO 5.1</span>
-                        </h1>
-                        <p class="text-slate-500 text-[12px] font-semibold tracking-wide uppercase">
-                            Studio Line India • Management Console
-                        </p>
-                    </div>
+    <aside class="w-20 lg:w-64 sidebar h-screen sticky top-0 flex flex-col p-6">
+        <div class="flex items-center gap-3 mb-12">
+            <div class="h-10 w-10 bg-gradient-to-br from-yellow-600 to-yellow-200 rounded-xl flex items-center justify-center">
+                <i class="fas fa-bolt text-black text-xl"></i>
+            </div>
+            <span class="hidden lg:block font-black text-xl tracking-tighter text-white uppercase text-center">Studio Line</span>
+        </div>
+        
+        <nav class="space-y-4 flex-1">
+            <div id="tabDashboard" class="flex items-center gap-4 text-yellow-500 bg-yellow-500/5 p-3 rounded-xl cursor-pointer transition-all">
+                <i class="fas fa-layer-group"></i> <span class="hidden lg:block font-bold">Dashboard</span>
+            </div>
+            <div id="tabMigration" class="flex items-center gap-4 text-slate-500 hover:text-white p-3 cursor-pointer transition-all rounded-xl">
+                <i class="fas fa-key"></i> <span class="hidden lg:block font-bold">Update Licenses</span>
+            </div>
+            <div id="tabRedeem" class="flex items-center gap-4 text-slate-500 hover:text-white p-3 cursor-pointer transition-all rounded-xl">
+                <i class="fas fa-ticket-alt"></i> <span class="hidden lg:block font-bold">My Redeem Codes</span>
+            </div>
+        </nav>
+    </aside>
+
+    <main class="flex-1 p-6 lg:p-10">
+        
+        <header class="flex flex-col xl:flex-row justify-between items-start xl:items-center mb-10 gap-6">
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-6 w-full xl:w-auto">
+                <h1 class="text-white text-3xl font-black tracking-tight ">Control Panel</h1>
+                
+                <div class="relative w-full md:w-80">
+                    <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                    <input type="text" id="searchInput" placeholder="Search ID or Studio Name..." 
+                           class="input-dark w-full pl-10 pr-4 py-3 rounded-xl text-xs font-semibold tracking-wide">
                 </div>
             </div>
-            
-            <div id="connection-status" class="flex items-center gap-3 text-[11px] font-bold text-emerald-400 bg-emerald-500/5 border border-emerald-500/20 px-5 py-2.5 rounded-full backdrop-blur-md">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                DATABASE CONNECTED
+
+            <div class="flex gap-4">
+                <div class="bg-blue-500/10 border border-blue-500/20 px-5 py-2 rounded-lg text-center">
+                    <p class="text-[9px] text-blue-400 font-bold uppercase mb-1">Active License Nob</p>
+                    <span id="active-count" class="text-white text-xl font-black mono">00</span>
+                </div>
+                <div class="bg-emerald-500/10 border border-emerald-500/20 px-5 py-2 rounded-lg text-center">
+                    <p class="text-[9px] text-emerald-400 font-bold uppercase mb-1">Update License Nob</p>
+                    <span id="update-count" class="text-white text-xl font-black mono">00</span>
+                </div>
+                <div class="bg-red-500/10 border border-red-500/20 px-5 py-2 rounded-lg text-center">
+                    <p class="text-[9px] text-red-400 font-bold uppercase mb-1">UNDEFINED Nob</p>
+                    <span id="undefined-count" class="text-white text-xl font-black mono">00</span>
+                </div>
+            </div>
+        </header>
+
+        <div id="topControls" class="grid grid-cols-1 xl:grid-cols-12 gap-8 mb-10">
+            <div class="xl:col-span-5 cluster-card p-6">
+                <h3 class="text-xs font-black text-yellow-600 uppercase tracking-widest mb-6">Deploy Control</h3>
+                <div class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <select id="swName" class="input-dark w-full p-2.5 rounded-lg text-xs">
+                            <option>Album X PRO 5.1</option>
+                            <option>Studio Line Magic PSD</option>
+                            <option>SLI Retouching Pro</option>
+                        </select>
+                        <select id="swStatus" class="input-dark w-full p-2.5 rounded-lg text-xs">
+                            <option value="Active">Active</option>
+                            <option value="Suspended">Suspended</option>
+                        </select>
+                    </div>
+                    <input type="text" id="licKey" placeholder="LICENSE ID" class="input-dark w-full p-3 rounded-lg text-sm mono uppercase">
+                    <input type="text" id="hwid" placeholder="HARDWARE SIGNATURE" class="input-dark w-full p-3 rounded-lg text-sm mono">
+                    <button id="deployBtn" class="btn-gold w-full py-4 rounded-xl text-xs uppercase tracking-widest">Register License Key</button>
+                </div>
+            </div>
+
+            <div class="xl:col-span-7 cluster-card p-6">
+                <h3 class="text-xs font-black text-yellow-600 uppercase tracking-widest mb-6">Batch Generator</h3>
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <input type="text" id="middleKey" placeholder="MIDDLE KEY" class="input-dark p-3 rounded-lg text-sm mono uppercase">
+                    <input type="number" id="qty" value="5" class="input-dark p-3 rounded-lg text-sm mono">
+                </div>
+                <button onclick="generateBatch()" class="w-full bg-white/5 border border-white/10 text-white py-3 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-white/10 mb-4 transition-all">Execute Batch Engine</button>
+                <div id="batchPreview" class="hidden grid grid-cols-2 gap-2 max-h-32 overflow-y-auto p-2 bg-black/40 rounded-lg"></div>
             </div>
         </div>
 
-        <div class="glass-card rounded-3xl p-6 md:p-8 mb-8">
-            <h2 class="text-[11px] font-black mb-6 uppercase text-blue-500 tracking-[0.3em] flex items-center gap-2">
-                <span class="w-8 h-[1px] bg-blue-500/30"></span>
-                Provisioning Protocol
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
-                <div class="md:col-span-4 space-y-2">
-                    <label class="text-[11px] font-bold text-slate-400 ml-1">LICENSE IDENTIFIER</label>
-                    <input type="text" id="licenseKey" placeholder="XXXX-XXXX-XXXX" class="input-cyber w-full p-4 rounded-2xl outline-none text-sm mono">
-                </div>
-                <div class="md:col-span-3 space-y-2">
-                    <label class="text-[11px] font-bold text-slate-400 ml-1">HARDWARE SIGNATURE</label>
-                    <input type="text" id="hwid" placeholder="ID:77X-00A" class="input-cyber w-full p-4 rounded-2xl outline-none text-sm mono">
-                </div>
-                <div class="md:col-span-2 space-y-2">
-                    <label class="text-[11px] font-bold text-slate-400 ml-1">NODE STATE</label>
-                    <select id="status" class="input-cyber w-full p-4 rounded-2xl outline-none text-sm appearance-none cursor-pointer">
-                        <option value="Active">Active</option>
-                        <option value="Pending">Pending</option>
-                        <option value="Expired">Expired</option>
-                    </select>
-                </div>
-                <div class="md:col-span-3 flex items-end">
-                    <button id="saveBtn" class="btn-cyber w-full py-4 rounded-2xl text-sm font-black uppercase tracking-widest flex items-center justify-center gap-2">
-                        <i class="fas fa-plus-circle"></i>
-                        Commit Node
-                    </button>
-                </div>
+        <div id="viewDashboard" class="cluster-card overflow-hidden mb-10">
+            <div class="p-4 border-b border-white/5 bg-white/[0.02]">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Main Deployment Cluster</span>
             </div>
-        </div>
-
-        <div class="glass-card rounded-3xl overflow-hidden">
-            <div class="bg-slate-900/50 px-8 py-5 border-b border-slate-800/50 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div class="flex items-center gap-3">
-                    <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                    <span class="text-[12px] font-bold uppercase tracking-[0.1em] text-slate-300">Active Deployment Clusters</span>
-                </div>
-                <span id="node-count" class="text-[10px] bg-blue-600/20 text-blue-400 border border-blue-500/30 px-4 py-1.5 rounded-lg font-black italic">
-                    INITIALIZING...
-                </span>
-            </div>
-            
-            <div class="overflow-x-auto overflow-y-hidden">
-                <table class="w-full text-left">
-                    <thead>
-                        <tr class="bg-slate-950/50 text-slate-500 uppercase text-[10px] font-black tracking-widest">
-                            <th class="px-8 py-6">ID</th>
-                            <th class="px-8 py-6">License Identifier</th>
-                            <th class="px-8 py-6">Hardware Signature</th>
-                            <th class="px-8 py-6">Last Sync</th>
-                            <th class="px-8 py-6 text-center">Status</th>
-                            <th class="px-8 py-6 text-right">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="db-tbody" class="mono text-sm">
-                        <tr>
-                            <td colspan="6" class="px-8 py-24 text-center">
-                                <div class="flex flex-col items-center gap-4">
-                                    <div class="w-12 h-12 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin"></div>
-                                    <p class="text-slate-500 font-bold animate-pulse text-xs tracking-widest">SYNCING WITH MAINFRAME...</p>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+<thead>
+    <tr class="text-[13px] text-slate-600 uppercase font-bold text-left bg-black/20">
+        <th class="p-6">ID</th>
+        <th class="p-6">License</th>
+        <th class="p-6">Hardware ID</th>
+        <th class="p-6">Studio Name</th>
+        <th class="p-6">Whatsapp Nob</th>
+        <th class="p-6">Software Name</th> <th class="p-6">Status</th>
+        <th class="p-6 whitespace-nowrap">Last Check Time</th>
+        <th class="p-6 text-right">Actions</th>
+    </tr>
+</thead>
+                    <tbody id="cluster-tbody" class="text-sm"></tbody>
                 </table>
             </div>
         </div>
-    </div>
+
+        <div id="viewMigration" class="cluster-card overflow-hidden hidden mb-10">
+            <div class="p-4 bg-emerald-500/5 border-b border-emerald-500/10 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="h-2 w-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-500">Live Migration Intelligence Stream</span>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="text-sm text-slate-400 uppercase font-bold bg-black/40 border-b border-white/5">
+                            <th class="p-4">SL Nob</th>
+                            <th class="p-4">Studio Name</th>
+                            <th class="p-4">Whatsapp Nob</th>
+                            <th class="p-4">Old License</th>
+                            <th class="p-4">New License</th>
+                            <th class="p-4">Hardware ID</th>
+                            <th class="p-4">Software Name</th>
+                            <th class="p-4 whitespace-nowrap">Migration Time</th> 
+                            <th class="p-4 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="migration-tbody" class="text-sm mono"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="viewRedeem" class="cluster-card overflow-hidden hidden mb-10">
+            <div class="p-4 bg-yellow-500/5 border-b border-yellow-500/10 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-ticket-alt text-yellow-500"></i>
+                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-yellow-500">Available Redeem Codes</span>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="text-sm text-slate-400 uppercase font-bold bg-black/40 border-b border-white/5">
+                            <th class="p-6">SL</th>
+                            <th class="p-6">Redeem Code</th>
+                            <th class="p-6">Status</th>
+                            <th class="p-6">Created Date</th>
+                            <th class="p-6 text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="redeem-tbody" class="text-sm mono"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getDatabase, ref, set, onValue, remove, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        import { getDatabase, ref, onValue, remove, update, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-        // Your Config
         const firebaseConfig = {
             apiKey: "AIzaSyApAaZ3rjv8Mbw0-DNJm-mIyOf5saDAQVs",
             authDomain: "test-e91f7.firebaseapp.com",
             databaseURL: "https://test-e91f7-default-rtdb.firebaseio.com",
             projectId: "test-e91f7",
             storageBucket: "test-e91f7.firebasestorage.app",
-            messagingSenderId: "147299798381",
-            appId: "1:147299798381:web:751497cd3996e340e05e64"
         };
 
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
 
-        // CRUD Logic
-        document.getElementById('saveBtn').onclick = () => {
-            const key = document.getElementById('licenseKey').value.trim();
-            const hwid = document.getElementById('hwid').value.trim() || "UNDEFINED";
-            const status = document.getElementById('status').value;
+        let masterData = {};
+        let redeemData = {};
 
-            if(!key) {
-                alert("Please enter a License Key");
-                return;
-            }
-
-            set(ref(db, 'licenses/' + key), {
-                activeHardwareId: hwid,
-                updatedAt: serverTimestamp(),
-                status: status
-            }).then(() => {
-                document.getElementById('licenseKey').value = "";
-                document.getElementById('hwid').value = "";
-            });
+        // --- TAB SYSTEM LOGIC ---
+        const tabs = {
+            dashboard: { btn: document.getElementById('tabDashboard'), view: document.getElementById('viewDashboard') },
+            migration: { btn: document.getElementById('tabMigration'), view: document.getElementById('viewMigration') },
+            redeem: { btn: document.getElementById('tabRedeem'), view: document.getElementById('viewRedeem') }
         };
 
-        onValue(ref(db, 'licenses'), (snapshot) => {
-            const tbody = document.getElementById('db-tbody');
-            const nodeCount = document.getElementById('node-count');
-            tbody.innerHTML = "";
-            
-            if (snapshot.exists()) {
-                let sl = 1;
-                snapshot.forEach((child) => {
-                    const id = child.key;
-                    const data = child.val();
-                    const date = data.updatedAt ? new Date(data.updatedAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : '---';
-                    
-                    const statusStyles = {
-                        'Active': 'text-emerald-400 bg-emerald-400/10 border border-emerald-400/20',
-                        'Pending': 'text-amber-400 bg-amber-400/10 border border-amber-400/20',
-                        'Expired': 'text-rose-400 bg-rose-400/10 border border-rose-400/20'
-                    };
+        function switchTab(target) {
+            Object.keys(tabs).forEach(key => {
+                if (key === target) {
+                    tabs[key].view.classList.remove('hidden');
+                    tabs[key].btn.classList.add('text-yellow-500', 'bg-yellow-500/5');
+                    tabs[key].btn.classList.remove('text-slate-500');
+                    if(key === 'redeem') document.getElementById('topControls').classList.add('hidden');
+                    else document.getElementById('topControls').classList.remove('hidden');
+                } else {
+                    tabs[key].view.classList.add('hidden');
+                    tabs[key].btn.classList.remove('text-yellow-500', 'bg-yellow-500/5');
+                    tabs[key].btn.classList.add('text-slate-500');
+                }
+            });
+        }
 
-                    const style = statusStyles[data.status] || 'text-slate-400 bg-slate-400/10';
+        tabs.dashboard.btn.onclick = () => switchTab('dashboard');
+        tabs.migration.btn.onclick = () => switchTab('migration');
+        tabs.redeem.btn.onclick = () => switchTab('redeem');
 
-                    const rowHtml = `
-                        <tr class="db-row group">
-                            <td class="px-8 py-5 text-slate-600 font-bold">${sl.toString().padStart(2, '0')}</td>
-                            <td class="px-8 py-5 font-bold text-white tracking-wide">${id}</td>
-                            <td class="px-8 py-5 text-slate-400">
-                                <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">${data.activeHardwareId}</span>
-                            </td>
-                            <td class="px-8 py-5 text-slate-500 text-[12px]">${date}</td>
-                            <td class="px-8 py-5 text-center">
-                                <span class="status-pill ${style}">${data.status}</span>
-                            </td>
-                            <td class="px-8 py-5 text-right">
-                                <button onclick="deleteNode('${id}')" class="w-9 h-9 rounded-xl bg-rose-500/5 text-rose-500 hover:bg-rose-500 hover:text-white transition-all flex items-center justify-center ml-auto">
-                                    <i class="fas fa-trash-can text-xs"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    `;
-                    tbody.insertAdjacentHTML('beforeend', rowHtml);
-                    sl++;
-                });
-                nodeCount.innerText = `${sl - 1} NODES ACTIVE`;
-            } else {
-                tbody.innerHTML = "<tr><td colspan='6' class='px-8 py-20 text-center text-slate-600 italic uppercase tracking-[0.2em] text-xs'>Zero Data Clusters Detected</td></tr>";
-                nodeCount.innerText = "NO NODES";
+        // --- BATCH GENERATOR ---
+        window.generateBatch = async () => {
+            const qty = document.getElementById('qty').value;
+            const userMidKey = document.getElementById('middleKey').value.toUpperCase().trim();
+            const preview = document.getElementById('batchPreview');
+            preview.innerHTML = ""; 
+            preview.classList.remove('hidden');
+
+            for (let i = 0; i < qty; i++) {
+                const r = () => Math.random().toString(36).substring(2, 6).toUpperCase();
+                const midPart = userMidKey ? userMidKey : r();
+                const code = `SLI-${midPart}-${r()}-${r()}`; 
+
+                // Save to Firebase
+await set(ref(db, 'redeem_codes/' + code), {
+    status: "Unused",
+    createdAt: new Date().toISOString()
+});
+
+                preview.insertAdjacentHTML('beforeend', `
+                    <div class="p-2 bg-white/5 rounded text-[10px] text-yellow-500 border border-white/5 flex justify-between items-center group">
+                        <span class="mono">${code}</span>
+                        <button onclick="navigator.clipboard.writeText('${code}'); this.innerText='DONE'" 
+                                class="text-[8px] bg-yellow-600/20 px-2 py-1 rounded text-yellow-200 opacity-0 group-hover:opacity-100 transition">
+                            COPY
+                        </button>
+                    </div>
+                `);
             }
+            alert("Redeem Codes Synced to Cloud!");
+        };
+
+        // --- DATABASE SYNC ---
+        onValue(ref(db, 'licenses'), (snap) => {
+            masterData = snap.val() || {};
+            renderTables(document.getElementById('searchInput').value.toLowerCase());
         });
 
-        window.deleteNode = (id) => {
-            if(confirm(`SYSTEM ACTION: Decommission node ${id}?`)) {
-                remove(ref(db, 'licenses/' + id));
-            }
+        onValue(ref(db, 'redeem_codes'), (snap) => {
+            redeemData = snap.val() || {};
+            renderRedeemTable();
+        });
+
+        document.getElementById('searchInput').oninput = (e) => {
+            renderTables(e.target.value.toLowerCase());
+        };
+
+        function renderRedeemTable() {
+            const tbody = document.getElementById('redeem-tbody');
+            tbody.innerHTML = "";
+            let count = 0;
+            Object.keys(redeemData).forEach(code => {
+                count++;
+                const item = redeemData[code];
+                tbody.insertAdjacentHTML('beforeend', `
+                    <tr class="border-b border-white/[0.02] hover:bg-yellow-500/[0.03] transition-colors">
+                        <td class="p-6 text-slate-700 font-bold">${count.toString().padStart(2, '0')}</td>
+                        <td class="p-6 text-yellow-500 font-bold">${code}</td>
+                        <td class="p-6"><span class="status-badge bg-blue-500/10 text-blue-400 border-blue-500/20">${item.status}</span></td>
+                        <td class="p-6 text-slate-500">${new Date(item.createdAt).toLocaleDateString()}</td>
+                        <td class="p-6 text-right">
+                            <i onclick="deleteRedeem('${code}')" class="fas fa-trash-alt action-icon text-red-500"></i>
+                        </td>
+                    </tr>
+                `);
+            });
+        }
+
+        window.deleteRedeem = (code) => {
+            if(confirm("Delete this Redeem Code?")) remove(ref(db, 'redeem_codes/' + code));
+        };
+
+        function renderTables(filter) {
+            const tbody = document.getElementById('cluster-tbody');
+            const mtbody = document.getElementById('migration-tbody');
+            tbody.innerHTML = ""; mtbody.innerHTML = "";
+            
+            let uc = 0, mc = 0, unfCount = 0;
+
+            const sortedKeys = Object.keys(masterData).sort((a, b) => {
+                const hwA = (masterData[a].activeHardwareId || 'UNDEFINED').toUpperCase();
+                const hwB = (masterData[b].activeHardwareId || 'UNDEFINED').toUpperCase();
+                if (hwA === 'UNDEFINED' && hwB !== 'UNDEFINED') return 1;
+                if (hwA !== 'UNDEFINED' && hwB === 'UNDEFINED') return -1;
+                return 0;
+            });
+
+            sortedKeys.forEach((id) => {
+                const data = masterData[id];
+                const searchStr = `${id} ${data.studioName || ''} ${data.activeHardwareId || ''}`.toLowerCase();
+                if (filter && !searchStr.includes(filter)) return;
+
+                const hwText = data.activeHardwareId || 'UNDEFINED';
+                const isUndefined = hwText.toUpperCase() === 'UNDEFINED';
+                const hwClass = isUndefined ? 'text-red-500 font-black opacity-60' : '';
+                if(isUndefined) unfCount++;
+
+                const lastPingStr = data.lastPing;
+                let displayPing = lastPingStr || '---';
+                let statusColor = 'text-slate-500'; 
+                let pulseClass = '';
+
+                if (lastPingStr) {
+                    try {
+                        const parts = lastPingStr.match(/(\d+)-(\d+)-(\d+) (\d+):(\d+):(\d+) (AM|PM)/);
+                        if (parts) {
+                            let day = parseInt(parts[1]), month = parseInt(parts[2]) - 1, year = parseInt(parts[3]);
+                            let hours = parseInt(parts[4]), minutes = parseInt(parts[5]), seconds = parseInt(parts[6]), ampm = parts[7];
+                            if (ampm === "PM" && hours < 12) hours += 12;
+                            if (ampm === "AM" && hours === 12) hours = 0;
+                            const pingDate = new Date(year, month, day, hours, minutes, seconds);
+                            const diffInSeconds = Math.floor((new Date() - pingDate) / 1000);
+                            if (diffInSeconds >= 0 && diffInSeconds < 300) {
+                                statusColor = 'text-emerald-400';
+                                pulseClass = 'animate-pulse';
+                            }
+                        }
+                    } catch (e) { console.error(e); }
+                }
+
+                const timeHtml = `<td class="${statusColor} font-bold mono text-[13px] whitespace-nowrap"><i class="fas fa-satellite-dish ${pulseClass} mr-1"></i> ${displayPing}</td>`;
+
+                if (data.source !== "migration") {
+                    uc++;
+tbody.insertAdjacentHTML('beforeend', `
+    <tr class="border-t border-white/[0.03] hover:bg-white/[0.01] transition-colors">
+        <td class="p-6 text-slate-700 font-bold mono">${uc.toString().padStart(2, '0')}</td>
+        <td class="p-6 text-white font-bold">${id}</td>
+        <td class="p-6"><span class="hw-signature mono ${hwClass}">${hwText}</span></td>
+        <td class="p-6 text-slate-300 font-semibold">${data.studioName || '---'}</td>
+        <td class="p-6 text-slate-400 mono">${data.whatsapp || '---'}</td>
+        
+        <td class="p-6 text-yellow-500/70 text-xs font-bold uppercase">${data.softwareName || '---'}</td>
+        
+        <td class="p-6"><span class="status-badge">${data.status || 'ACTIVE'}</span></td>
+        ${timeHtml}
+        <td class="p-6 text-right">
+            <i onclick="editNode('${id}','${hwText}','${data.status || 'Active'}')" class="fas fa-edit action-icon text-blue-500 mr-2"></i>
+            <i onclick="deleteNode('${id}')" class="fas fa-trash-alt action-icon text-red-500"></i>
+        </td>
+    </tr>`);
+                } else {
+                    mc++;
+                    mtbody.insertAdjacentHTML('beforeend', `
+                        <tr class="border-b border-white/[0.02] hover:bg-emerald-500/[0.03] transition-colors text-sm"> 
+                            <td class="p-4 text-slate-600 font-bold">${mc.toString().padStart(2, '0')}</td>
+                            <td class="p-4 text-white font-bold">${data.studioName || '---'}</td>
+                            <td class="p-4 text-slate-300">${data.whatsapp || '---'}</td>
+                            <td class="p-4 text-red-500/50 line-through text-xs">${data.oldLicense || '---'}</td>
+                            <td class="p-4 text-emerald-400 font-bold">${id}</td>
+                            <td class="p-4"><span class="hw-signature border-emerald-500/20 text-xs ${hwClass}">${hwText}</span></td>
+                            <td class="p-4 text-slate-500 uppercase text-[13px]">${data.softwareName || '---'}</td>
+                            ${timeHtml}
+                            <td class="p-4 text-right">
+                                <i onclick="editNode('${id}','${hwText}','Active')" class="fas fa-edit action-icon text-blue-500 mr-2 transition"></i>
+                                <i onclick="deleteNode('${id}')" class="fas fa-trash-alt action-icon text-red-500 transition"></i>
+                            </td>
+                        </tr>`);
+                }
+            });
+            
+            document.getElementById('active-count').innerText = uc.toString().padStart(2, '0');
+            document.getElementById('update-count').innerText = mc.toString().padStart(2, '0');
+            document.getElementById('undefined-count').innerText = unfCount.toString().padStart(2, '0');
+        }
+
+        setInterval(() => { if (Object.keys(masterData).length > 0) renderTables(document.getElementById('searchInput').value.toLowerCase()); }, 10000);
+
+        window.editNode = (id, hw, st) => {
+            document.getElementById('licKey').value = id;
+            document.getElementById('hwid').value = (hw.toUpperCase() === 'UNDEFINED') ? "" : hw;
+            document.getElementById('swStatus').value = st;
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
+
+        window.deleteNode = (id) => { if(confirm("Confirm Delete Node?")) remove(ref(db, 'licenses/' + id)); };
+
+        document.getElementById('deployBtn').onclick = () => {
+            const key = document.getElementById('licKey').value.trim();
+            if(!key) return;
+            const now = new Date();
+            const formattedDateTime = now.toLocaleDateString('en-GB') + ' | ' + now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            const existingData = masterData[key] || {};
+
+            update(ref(db, 'licenses/' + key), {
+                activeHardwareId: document.getElementById('hwid').value || "UNDEFINED",
+                softwareName: document.getElementById('swName').value,
+                status: document.getElementById('swStatus').value,
+                lastCheck: formattedDateTime,
+                oldLicense: existingData.oldLicense || "N/A",
+                source: existingData.source || "manual", 
+                studioName: existingData.studioName || "Manual Entry",
+                whatsapp: existingData.whatsapp || "---"
+            });
+            document.getElementById('licKey').value = ""; document.getElementById('hwid').value = "";
         };
     </script>
 </body>
