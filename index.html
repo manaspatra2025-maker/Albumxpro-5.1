@@ -116,7 +116,7 @@
         
         <header class="flex flex-col xl:flex-row justify-between items-start xl:items-center mb-10 gap-6">
             <div class="flex flex-col md:flex-row items-start md:items-center gap-6 w-full xl:w-auto">
-                <h1 class="text-white text-3xl font-black tracking-tight ">Control Panel</h1>
+                <h1 class="text-white text-3xl font-black tracking-tight ">Sli Software Control Panel</h1>
                 
                 <div class="relative w-full md:w-80">
                     <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
@@ -126,6 +126,10 @@
             </div>
 
             <div class="flex gap-4">
+<div class="bg-yellow-500/10 border border-yellow-500/20 px-5 py-2 rounded-lg text-center">
+    <p class="text-[9px] text-yellow-400 font-bold uppercase mb-1">Redeem Codes Nob</p>
+    <span id="redeem-total-count" class="text-white text-xl font-black mono">00</span>
+</div>
                 <div class="bg-blue-500/10 border border-blue-500/20 px-5 py-2 rounded-lg text-center">
                     <p class="text-[9px] text-blue-400 font-bold uppercase mb-1">Active License Nob</p>
                     <span id="active-count" class="text-white text-xl font-black mono">00</span>
@@ -339,30 +343,43 @@ await set(ref(db, 'redeem_codes/' + code), {
             renderTables(e.target.value.toLowerCase());
         };
 
-        function renderRedeemTable() {
-            const tbody = document.getElementById('redeem-tbody');
-            tbody.innerHTML = "";
-            let count = 0;
-            Object.keys(redeemData).forEach(code => {
-                count++;
-                const item = redeemData[code];
-                tbody.insertAdjacentHTML('beforeend', `
-                    <tr class="border-b border-white/[0.02] hover:bg-yellow-500/[0.03] transition-colors">
-                        <td class="p-6 text-slate-700 font-bold">${count.toString().padStart(2, '0')}</td>
-                        <td class="p-6 text-yellow-500 font-bold">${code}</td>
-                        <td class="p-6"><span class="status-badge bg-blue-500/10 text-blue-400 border-blue-500/20">${item.status}</span></td>
-                        <td class="p-6 text-slate-500">${new Date(item.createdAt).toLocaleDateString()}</td>
-                        <td class="p-6 text-right">
-                            <i onclick="deleteRedeem('${code}')" class="fas fa-trash-alt action-icon text-red-500"></i>
-                        </td>
-                    </tr>
-                `);
-            });
-        }
+function renderRedeemTable() {
+    const tbody = document.getElementById('redeem-tbody');
+    const countDisplay = document.getElementById('redeem-total-count'); // কাউন্টার এলিমেন্ট
+    tbody.innerHTML = "";
+    
+    // redeemData এর মোট কি (Key) সংখ্যা বের করা
+    const totalCodes = Object.keys(redeemData).length;
+    
+    // হেডারের কাউন্টারে সংখ্যাটি আপডেট করা
+    if (countDisplay) {
+        countDisplay.innerText = totalCodes.toString().padStart(2, '0');
+    }
 
-        window.deleteRedeem = (code) => {
-            if(confirm("Delete this Redeem Code?")) remove(ref(db, 'redeem_codes/' + code));
-        };
+    let count = 0;
+    Object.keys(redeemData).forEach(code => {
+        count++;
+        const item = redeemData[code];
+        tbody.insertAdjacentHTML('beforeend', `
+            <tr class="border-b border-white/[0.02] hover:bg-yellow-500/[0.03] transition-colors">
+                <td class="p-6 text-slate-700 font-bold">${count.toString().padStart(2, '0')}</td>
+                <td class="p-6 text-yellow-500 font-bold">${code}</td>
+                <td class="p-6"><span class="status-badge bg-blue-500/10 text-blue-400 border-blue-500/20">${item.status}</span></td>
+                <td class="p-6 text-slate-500">${new Date(item.createdAt).toLocaleDateString()}</td>
+                <td class="p-6 text-right">
+                    <i onclick="deleteRedeem('${code}')" class="fas fa-trash-alt action-icon text-red-500"></i>
+                </td>
+            </tr>
+        `);
+    });
+}
+
+window.deleteRedeem = (code) => {
+    // ডিলিট করার আগে কনফার্মেশন এবং Firebase থেকে রিমুভ
+    if(confirm("Delete this Redeem Code?")) {
+        remove(ref(db, 'redeem_codes/' + code));
+    }
+};
 
         function renderTables(filter) {
             const tbody = document.getElementById('cluster-tbody');
