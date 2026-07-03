@@ -85,31 +85,259 @@
         }
         .action-icon:hover { background: rgba(255,255,255,0.05); }
 
+
+        .sidebar {
+            background:
+                radial-gradient(circle at top left, rgba(212,175,55,.14), transparent 32%),
+                linear-gradient(180deg, rgba(10,12,18,.96), rgba(3,5,10,.98));
+            border-right: 1px solid rgba(212,175,55,.10);
+            box-shadow: 18px 0 45px rgba(0,0,0,.45), inset -1px 0 0 rgba(255,255,255,.035);
+        }
+
+        .sidebar-brand-card {
+            background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.015));
+            border: 1px solid rgba(212,175,55,.14);
+            border-radius: 22px;
+            padding: 18px;
+            box-shadow: 0 18px 45px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.08);
+        }
+
+        .brand-icon-premium {
+            width: 54px;
+            height: 54px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #D4AF37 0%, #F9E076 55%, #B8860B 100%);
+            box-shadow: 0 0 28px rgba(212,175,55,.28);
+        }
+
+        .sidebar-nav-item {
+            min-height: 58px;
+            padding: 14px 16px;
+            border-radius: 18px;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+            font-size: 15px;
+        }
+
+        .sidebar-nav-item::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(212,175,55,.16), rgba(255,255,255,.03));
+            opacity: 0;
+            transition: .25s;
+        }
+
+        .sidebar-nav-item:hover::before { opacity: 1; }
+        .sidebar-nav-item i,
+        .sidebar-nav-item span { position: relative; z-index: 1; }
+
+        .sidebar-nav-item.text-yellow-500 {
+            background: linear-gradient(90deg, rgba(212,175,55,.20), rgba(212,175,55,.06)) !important;
+            border-color: rgba(212,175,55,.22);
+            box-shadow: inset 4px 0 0 #D4AF37, 0 14px 34px rgba(212,175,55,.08);
+        }
+
+        .sidebar-footer-card {
+            background: rgba(255,255,255,.035);
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 20px;
+            padding: 14px;
+            margin-top: 18px;
+        }
+
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+
+
+        .main-table-wrap {
+            border-radius: 0 0 12px 12px;
+        }
+
+        .premium-main-table {
+            table-layout: fixed;
+            min-width: 1180px;
+        }
+
+        .premium-main-table thead th {
+            padding: 18px 16px !important;
+            font-size: 11px !important;
+            letter-spacing: .08em;
+            color: #6f86a8 !important;
+            border-bottom: 1px solid rgba(255,255,255,.05);
+        }
+
+        .premium-main-table tbody tr {
+            min-height: 72px;
+            background: rgba(255,255,255,.006);
+        }
+
+        .premium-main-table tbody tr:hover {
+            background: rgba(255,255,255,.025) !important;
+        }
+
+        .premium-main-table td {
+            padding: 18px 16px !important;
+            vertical-align: middle;
+            border-color: rgba(255,255,255,.035) !important;
+        }
+
+        .license-cell {
+            color: #ffffff;
+            font-weight: 900;
+            letter-spacing: .02em;
+        }
+
+        .studio-cell {
+            color: #dbeafe;
+            font-weight: 800;
+            line-height: 1.35;
+        }
+
+        .whatsapp-cell {
+            color: #93c5fd;
+            font-weight: 800;
+            letter-spacing: .03em;
+        }
+
+        .software-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 118px;
+            padding: 7px 10px;
+            border-radius: 10px;
+            background: rgba(212,175,55,.09);
+            border: 1px solid rgba(212,175,55,.14);
+            color: #d4af37;
+            font-size: 11px;
+            font-weight: 900;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .hw-signature {
+            max-width: 165px;
+            min-width: 150px;
+            white-space: normal;
+            word-break: break-word;
+            line-height: 1.25;
+            font-size: 12px;
+            padding: 7px 10px;
+        }
+
+        .online-row {
+            background: linear-gradient(90deg, rgba(16,185,129,.10), rgba(16,185,129,.02), rgba(255,255,255,.006)) !important;
+            box-shadow: inset 4px 0 0 #10B981;
+        }
+
+        .online-badge {
+            background: rgba(16,185,129,.14) !important;
+            color: #34d399 !important;
+            border-color: rgba(52,211,153,.35) !important;
+            box-shadow: 0 0 18px rgba(16,185,129,.16);
+        }
+
+        .offline-badge {
+            background: rgba(71,85,105,.12) !important;
+            color: #94a3b8 !important;
+            border-color: rgba(148,163,184,.15) !important;
+        }
+
+        .last-check-cell {
+            color: #9db7e6;
+            font-weight: 800;
+            letter-spacing: .03em;
+            white-space: nowrap;
+            font-size: 12px;
+        }
+
+        .action-cell {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .action-cell .action-icon {
+            margin: 0 !important;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .redeem-row-selected {
+            background: linear-gradient(90deg, rgba(37, 99, 235, .42), rgba(14, 165, 233, .10)) !important;
+            box-shadow: inset 4px 0 0 #2563eb, inset 0 0 0 1px rgba(59,130,246,.55), 0 0 26px rgba(37,99,235,.18);
+        }
+        .redeem-action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            margin-left: 6px;
+            cursor: pointer;
+            transition: .2s;
+            border: 1px solid rgba(255,255,255,.08);
+        }
+        .redeem-action-btn:hover { transform: translateY(-1px); filter: brightness(1.15); }
+        .btn-share { background: rgba(37,99,235,.16); color:#38bdf8; border-color: rgba(56,189,248,.25); }
+        .btn-edit { background: rgba(212,175,55,.14); color:#facc15; border-color: rgba(250,204,21,.25); }
+        .btn-delete { background: rgba(239,68,68,.12); color:#ef4444; border-color: rgba(239,68,68,.25); }
+
+        .redeem-checkbox {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            transform: translateY(-1px);
+        }
+
     </style>
 </head>
 <body class="flex">
 
-    <aside class="w-20 lg:w-64 sidebar h-screen sticky top-0 flex flex-col p-6">
-        <div class="flex items-center gap-3 mb-12">
-            <div class="h-10 w-10 bg-gradient-to-br from-yellow-600 to-yellow-200 rounded-xl flex items-center justify-center">
-                <i class="fas fa-bolt text-black text-xl"></i>
+    <aside class="w-24 lg:w-80 sidebar h-screen sticky top-0 flex flex-col p-7">
+        <div class="sidebar-brand-card flex items-center gap-4 mb-10">
+            <div class="brand-icon-premium flex items-center justify-center shrink-0">
+                <i class="fas fa-bolt text-black text-2xl"></i>
             </div>
-            <span class="hidden lg:block font-black text-xl tracking-tighter text-white uppercase text-center">Studio Line</span>
+            <div class="hidden lg:block leading-tight">
+                <div class="font-black text-[22px] tracking-tight text-white uppercase">Studio Line</div>
+                <div class="font-black text-[22px] tracking-tight text-yellow-400 uppercase">India</div>
+                <div class="text-[10px] text-slate-500 font-bold uppercase tracking-[0.22em] mt-1">Control Panel</div>
+            </div>
         </div>
         
-        <nav class="space-y-4 flex-1">
-            <div id="tabDashboard" class="flex items-center gap-4 text-yellow-500 bg-yellow-500/5 p-3 rounded-xl cursor-pointer transition-all">
+        <nav class="space-y-5 flex-1">
+            <div id="tabDashboard" class="sidebar-nav-item flex items-center gap-4 text-yellow-500 bg-yellow-500/5 p-3 rounded-xl cursor-pointer transition-all">
                 <i class="fas fa-layer-group"></i> <span class="hidden lg:block font-bold">Dashboard</span>
             </div>
-            <div id="tabMigration" class="flex items-center gap-4 text-slate-500 hover:text-white p-3 cursor-pointer transition-all rounded-xl">
+            <div id="tabMigration" class="sidebar-nav-item flex items-center gap-4 text-slate-500 hover:text-white p-3 cursor-pointer transition-all rounded-xl">
                 <i class="fas fa-key"></i> <span class="hidden lg:block font-bold">Update Licenses</span>
             </div>
-            <div id="tabRedeem" class="flex items-center gap-4 text-slate-500 hover:text-white p-3 cursor-pointer transition-all rounded-xl">
-                <i class="fas fa-ticket-alt"></i> <span class="hidden lg:block font-bold">My Redeem Codes</span>
+            <div id="tabRedeem" class="sidebar-nav-item flex items-center gap-4 text-slate-500 hover:text-white p-3 cursor-pointer transition-all rounded-xl">
+                <i class="fas fa-ticket-alt"></i> <span class="hidden lg:block font-bold">Redeem Codes</span>
+            </div>
+            <div id="tabUsedRedeem" class="sidebar-nav-item flex items-center gap-4 text-slate-500 hover:text-white p-3 cursor-pointer transition-all rounded-xl">
+                <i class="fas fa-user-check"></i> <span class="hidden lg:block font-bold">Used Redeem History</span>
             </div>
         </nav>
+
+        <div class="sidebar-footer-card hidden lg:flex items-center gap-3">
+            <div class="h-11 w-11 rounded-2xl bg-yellow-500/15 border border-yellow-500/20 flex items-center justify-center text-yellow-400">
+                <i class="fas fa-shield-halved"></i>
+            </div>
+            <div>
+                <div class="text-white text-sm font-black">Studio Line India</div>
+                <div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Administrator</div>
+            </div>
+        </div>
     </aside>
 
     <main class="flex-1 p-6 lg:p-10">
@@ -181,18 +409,19 @@
             <div class="p-4 border-b border-white/5 bg-white/[0.02]">
                 <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Main Deployment Cluster</span>
             </div>
-            <div class="overflow-x-auto">
-                <table class="w-full">
+            <div class="overflow-x-auto main-table-wrap">
+                <table class="w-full premium-main-table">
 <thead>
-    <tr class="text-[13px] text-slate-600 uppercase font-bold text-left bg-black/20">
-        <th class="p-6">ID</th>
-        <th class="p-6">License</th>
-        <th class="p-6">Hardware ID</th>
-        <th class="p-6">Studio Name</th>
-        <th class="p-6">Whatsapp Nob</th>
-        <th class="p-6">Software Name</th> <th class="p-6">Status</th>
-        <th class="p-6 whitespace-nowrap">Last Check Time</th>
-        <th class="p-6 text-right">Actions</th>
+    <tr class="text-left bg-black/20">
+        <th style="width:64px;">ID</th>
+        <th style="width:150px;">License</th>
+        <th style="width:210px;">Hardware ID</th>
+        <th style="width:230px;">Studio Name</th>
+        <th style="width:150px;">Whatsapp Nob</th>
+        <th style="width:160px;">Software Name</th>
+        <th style="width:120px;">Status</th>
+        <th style="width:210px;">Last Check Time</th>
+        <th style="width:110px;" class="text-right">Actions</th>
     </tr>
 </thead>
                     <tbody id="cluster-tbody" class="text-sm"></tbody>
@@ -227,26 +456,55 @@
             </div>
         </div>
 
-        <div id="viewRedeem" class="cluster-card overflow-hidden hidden mb-10">
-            <div class="p-4 bg-yellow-500/5 border-b border-yellow-500/10 flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <i class="fas fa-ticket-alt text-yellow-500"></i>
-                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-yellow-500">Available Redeem Codes</span>
+        <div id="viewRedeem" class="hidden mb-10 space-y-8">
+            <div class="cluster-card overflow-hidden">
+                <div class="p-4 bg-yellow-500/5 border-b border-yellow-500/10 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-ticket-alt text-yellow-500"></i>
+                        <span class="text-[10px] font-black uppercase tracking-[0.2em] text-yellow-500">Available Redeem Codes</span>
+                    </div>
+                    <span id="unused-redeem-count" class="text-[10px] font-black uppercase tracking-widest text-yellow-300 bg-yellow-500/10 border border-yellow-500/20 px-3 py-1 rounded-full">00 Available</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="text-sm text-slate-400 uppercase font-bold bg-black/40 border-b border-white/5">
+                                <th class="p-6">SL</th>
+                                <th class="p-6">Redeem Code</th>
+                                <th class="p-6">Status</th>
+                                <th class="p-6">Created Date</th>
+                                <th class="p-6 text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="redeem-tbody" class="text-sm mono"></tbody>
+                    </table>
                 </div>
             </div>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="text-sm text-slate-400 uppercase font-bold bg-black/40 border-b border-white/5">
-                            <th class="p-6">SL</th>
-                            <th class="p-6">Redeem Code</th>
-                            <th class="p-6">Status</th>
-                            <th class="p-6">Created Date</th>
-                            <th class="p-6 text-right">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="redeem-tbody" class="text-sm mono"></tbody>
-                </table>
+
+            <div class="cluster-card overflow-hidden">
+                <div class="p-4 bg-emerald-500/5 border-b border-emerald-500/10 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-emerald-500"></i>
+                        <span class="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-500">Used Redeem Codes Data</span>
+                    </div>
+                    <span id="used-redeem-count" class="text-[10px] font-black uppercase tracking-widest text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">00 Used</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="text-sm text-slate-400 uppercase font-bold bg-black/40 border-b border-white/5">
+                                <th class="p-6">SL</th>
+                                <th class="p-6">Redeem Code</th>
+                                <th class="p-6">Used By Studio</th>
+                                <th class="p-6">Whatsapp Nob</th>
+                                <th class="p-6">License Key</th>
+                                <th class="p-6">Used Date</th>
+                                <th class="p-6 text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="used-redeem-tbody" class="text-sm mono"></tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </main>
@@ -268,6 +526,77 @@
 
         let masterData = {};
         let redeemData = {};
+        let selectedRedeemCodes = {}; // Multiple selected redeem codes loaded from Firebase settings/selectedRedeemCodes
+
+        function formatDateTimeClean(value) {
+            if (!value) return '---';
+            const str = String(value).trim();
+
+            // Firebase ISO format: 2026-07-03T12:41:01.0961411Z
+            if (/^\d{4}-\d{2}-\d{2}T/.test(str)) {
+                const d = new Date(str);
+                if (!isNaN(d.getTime())) {
+                    const day = String(d.getDate()).padStart(2, '0');
+                    const month = String(d.getMonth() + 1).padStart(2, '0');
+                    const year = d.getFullYear();
+                    let h = d.getHours();
+                    const m = String(d.getMinutes()).padStart(2, '0');
+                    const ampm = h >= 12 ? 'PM' : 'AM';
+                    h = h % 12 || 12;
+                    return `${day}/${month}/${year}, ${String(h).padStart(2, '0')}:${m} ${ampm}`;
+                }
+
+                // Fallback: remove milliseconds and Z
+                return str.replace(/\.\d+Z$/, '').replace('T', ' ');
+            }
+
+            // Remove only extra milliseconds ending like .0961411Z
+            return str.replace(/\.\d+Z$/, '').replace('T', ' ');
+        }
+
+
+        function parseAnyDate(value) {
+            if (!value) return null;
+            const str = String(value).trim();
+            let d = new Date(str);
+            if (!isNaN(d.getTime())) return d;
+
+            // dd/mm/yyyy, hh:mm AM
+            let m = str.match(/(\d{1,2})\/(\d{1,2})\/(\d{4}),?\s+(\d{1,2}):(\d{2})\s*(AM|PM)?/i);
+            if (m) {
+                let day = parseInt(m[1]), month = parseInt(m[2]) - 1, year = parseInt(m[3]);
+                let hour = parseInt(m[4]), min = parseInt(m[5]);
+                const ap = (m[6] || '').toUpperCase();
+                if (ap === 'PM' && hour < 12) hour += 12;
+                if (ap === 'AM' && hour === 12) hour = 0;
+                return new Date(year, month, day, hour, min, 0);
+            }
+
+            // dd-mm-yyyy hh:mm:ss AM
+            m = str.match(/(\d{1,2})-(\d{1,2})-(\d{4})\s+(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(AM|PM)?/i);
+            if (m) {
+                let day = parseInt(m[1]), month = parseInt(m[2]) - 1, year = parseInt(m[3]);
+                let hour = parseInt(m[4]), min = parseInt(m[5]), sec = parseInt(m[6] || '0');
+                const ap = (m[7] || '').toUpperCase();
+                if (ap === 'PM' && hour < 12) hour += 12;
+                if (ap === 'AM' && hour === 12) hour = 0;
+                return new Date(year, month, day, hour, min, sec);
+            }
+
+            return null;
+        }
+
+        function getLastPingDate(data) {
+            return parseAnyDate(data?.lastPing || data?.lastCheck || data?.activationDate || '');
+        }
+
+        function isOnlineNow(data) {
+            const d = getLastPingDate(data);
+            if (!d) return false;
+            const diffInSeconds = Math.floor((new Date() - d) / 1000);
+            return diffInSeconds >= 0 && diffInSeconds < 300;
+        }
+
 
         // --- TAB SYSTEM LOGIC ---
         const tabs = {
@@ -295,6 +624,18 @@
         tabs.dashboard.btn.onclick = () => switchTab('dashboard');
         tabs.migration.btn.onclick = () => switchTab('migration');
         tabs.redeem.btn.onclick = () => switchTab('redeem');
+
+        const usedRedeemBtn = document.getElementById('tabUsedRedeem');
+        if (usedRedeemBtn) {
+            usedRedeemBtn.onclick = () => {
+                switchTab('redeem');
+                document.getElementById('tabRedeem').classList.remove('text-yellow-500', 'bg-yellow-500/5');
+                document.getElementById('tabRedeem').classList.add('text-slate-500');
+                usedRedeemBtn.classList.add('text-yellow-500', 'bg-yellow-500/5');
+                usedRedeemBtn.classList.remove('text-slate-500');
+                setTimeout(() => document.getElementById('used-redeem-tbody')?.closest('.cluster-card')?.scrollIntoView({behavior:'smooth', block:'start'}), 100);
+            };
+        }
 
         // --- BATCH GENERATOR ---
         window.generateBatch = async () => {
@@ -329,9 +670,16 @@ await set(ref(db, 'redeem_codes/' + code), {
         };
 
         // --- DATABASE SYNC ---
+        // Multiple selected redeem codes are saved in Firebase, so checked rows stay blue after refresh / browser reopen.
+        onValue(ref(db, 'settings/selectedRedeemCodes'), (snap) => {
+            selectedRedeemCodes = snap.val() || {};
+            renderRedeemTable();
+        });
+
         onValue(ref(db, 'licenses'), (snap) => {
             masterData = snap.val() || {};
             renderTables(document.getElementById('searchInput').value.toLowerCase());
+            renderRedeemTable();
         });
 
         onValue(ref(db, 'redeem_codes'), (snap) => {
@@ -340,44 +688,144 @@ await set(ref(db, 'redeem_codes/' + code), {
         });
 
         document.getElementById('searchInput').oninput = (e) => {
-            renderTables(e.target.value.toLowerCase());
+            const q = e.target.value.toLowerCase();
+            renderTables(q);
+            renderRedeemTable();
         };
 
 function renderRedeemTable() {
     const tbody = document.getElementById('redeem-tbody');
-    const countDisplay = document.getElementById('redeem-total-count'); // কাউন্টার এলিমেন্ট
+    const usedTbody = document.getElementById('used-redeem-tbody');
+    const countDisplay = document.getElementById('redeem-total-count');
+    const unusedCountDisplay = document.getElementById('unused-redeem-count');
+    const usedCountDisplay = document.getElementById('used-redeem-count');
+
     tbody.innerHTML = "";
-    
-    // redeemData এর মোট কি (Key) সংখ্যা বের করা
-    const totalCodes = Object.keys(redeemData).length;
-    
-    // হেডারের কাউন্টারে সংখ্যাটি আপডেট করা
-    if (countDisplay) {
-        countDisplay.innerText = totalCodes.toString().padStart(2, '0');
+    usedTbody.innerHTML = "";
+
+    const codes = Object.keys(redeemData);
+    const totalCodes = codes.length;
+
+    // Available codes = not used in redeem_codes and not found as redeemToken in licenses
+    const usedFromLicenses = Object.values(masterData || {}).filter(x => x && x.redeemToken);
+    const usedTokenSet = new Set(usedFromLicenses.map(x => x.redeemToken));
+    let unusedCodes = codes.filter(code => (redeemData[code].status || 'Unused').toLowerCase() !== 'used' && !usedTokenSet.has(code));
+    let visibleUsedFromLicenses = usedFromLicenses;
+    const globalFilter = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
+    if (globalFilter) {
+        unusedCodes = unusedCodes.filter(code => {
+            const item = redeemData[code] || {};
+            return `${code} ${item.status || ''} ${item.createdAt || ''}`.toLowerCase().includes(globalFilter);
+        });
+        visibleUsedFromLicenses = usedFromLicenses.filter(item => `${item.redeemToken || ''} ${item.studioName || ''} ${item.whatsapp || ''} ${item.email || ''} ${item.address || ''} ${item.softwareName || ''} ${item.status || ''} ${item.source || ''} ${item.activeHardwareId || ''} ${item.hwid_1 || ''} ${item.hwid_2 || ''} ${item.activationDate || ''} ${item.lastPing || ''}`.toLowerCase().includes(globalFilter));
     }
 
-    let count = 0;
-    Object.keys(redeemData).forEach(code => {
-        count++;
-        const item = redeemData[code];
+    if (countDisplay) countDisplay.innerText = totalCodes.toString().padStart(2, '0');
+    if (unusedCountDisplay) unusedCountDisplay.innerText = `${unusedCodes.length.toString().padStart(2, '0')} Available`;
+    if (usedCountDisplay) usedCountDisplay.innerText = `${visibleUsedFromLicenses.length.toString().padStart(2, '0')} Used`;
+
+    if (unusedCodes.length === 0) {
         tbody.insertAdjacentHTML('beforeend', `
-            <tr class="border-b border-white/[0.02] hover:bg-yellow-500/[0.03] transition-colors">
-                <td class="p-6 text-slate-700 font-bold">${count.toString().padStart(2, '0')}</td>
+            <tr><td colspan="5" class="p-8 text-center text-slate-500 font-bold uppercase tracking-widest text-xs">No Available Redeem Codes</td></tr>
+        `);
+    }
+
+    unusedCodes.forEach((code, index) => {
+        const item = redeemData[code] || {};
+        const selectedClass = selectedRedeemCodes[code] ? 'redeem-row-selected' : '';
+        tbody.insertAdjacentHTML('beforeend', `
+            <tr id="redeem-row-${code}" class="${selectedClass} border-b border-white/[0.02] hover:bg-yellow-500/[0.03] transition-colors">
+                <td class="p-6 text-slate-300 font-bold">${(index + 1).toString().padStart(2, '0')}</td>
                 <td class="p-6 text-yellow-500 font-bold">${code}</td>
-                <td class="p-6"><span class="status-badge bg-blue-500/10 text-blue-400 border-blue-500/20">${item.status}</span></td>
-                <td class="p-6 text-slate-500">${new Date(item.createdAt).toLocaleDateString()}</td>
+                <td class="p-6"><span class="status-badge bg-blue-500/10 text-blue-400 border-blue-500/20">${item.status || 'Unused'}</span></td>
+                <td class="p-6 text-slate-500">${item.createdAt ? new Date(item.createdAt).toLocaleDateString() : '---'}</td>
+                <td class="p-6 text-right whitespace-nowrap">
+                    <input
+                        type="checkbox"
+                        class="redeem-checkbox h-5 w-5 accent-blue-600 cursor-pointer mr-3"
+                        onchange="toggleRedeemSelection('${code}', this.checked)"
+                        ${selectedRedeemCodes[code] ? 'checked' : ''}>
+                    <span title="Edit" onclick="editRedeem('${code}')" class="redeem-action-btn btn-edit"><i class="fas fa-pen"></i></span>
+                    <span title="Delete" onclick="deleteRedeem('${code}')" class="redeem-action-btn btn-delete"><i class="fas fa-trash-alt"></i></span>
+                </td>
+            </tr>
+        `);
+    });
+
+    if (visibleUsedFromLicenses.length === 0) {
+        usedTbody.insertAdjacentHTML('beforeend', `
+            <tr><td colspan="7" class="p-8 text-center text-slate-500 font-bold uppercase tracking-widest text-xs">No Used Redeem Codes Data Found</td></tr>
+        `);
+    }
+
+    visibleUsedFromLicenses.forEach((item, index) => {
+        const code = item.redeemToken || '---';
+        const licenseKey = item.hwid_1 || item.activeHardwareId || '---';
+        const usedDate = formatDateTimeClean(item.activationDate || item.lastPing || '---');
+        usedTbody.insertAdjacentHTML('beforeend', `
+            <tr class="border-b border-white/[0.02] hover:bg-emerald-500/[0.03] transition-colors">
+                <td class="p-6 text-slate-700 font-bold">${(index + 1).toString().padStart(2, '0')}</td>
+                <td class="p-6 text-emerald-400 font-bold">${code}</td>
+                <td class="p-6 text-white font-semibold">${item.studioName || '---'}</td>
+                <td class="p-6 text-slate-400">${item.whatsapp || '---'}</td>
+                <td class="p-6 text-yellow-500/80 font-bold">${licenseKey}</td>
+                <td class="p-6 text-slate-500 whitespace-nowrap">${usedDate}</td>
                 <td class="p-6 text-right">
-                    <i onclick="deleteRedeem('${code}')" class="fas fa-trash-alt action-icon text-red-500"></i>
+                    <span title="Share / Select" onclick="shareRedeem('${code}')" class="redeem-action-btn btn-share"><i class="fas fa-share-alt"></i></span>
                 </td>
             </tr>
         `);
     });
 }
 
-window.deleteRedeem = (code) => {
-    // ডিলিট করার আগে কনফার্মেশন এবং Firebase থেকে রিমুভ
+
+window.toggleRedeemSelection = async (code, checked) => {
+    if (checked) {
+        selectedRedeemCodes[code] = true;
+        await set(ref(db, 'settings/selectedRedeemCodes/' + code), true);
+    } else {
+        delete selectedRedeemCodes[code];
+        await remove(ref(db, 'settings/selectedRedeemCodes/' + code));
+    }
+    renderRedeemTable();
+};
+
+window.shareRedeem = async (code) => {
+    selectedRedeemCodes[code] = true;
+    await set(ref(db, 'settings/selectedRedeemCodes/' + code), true);
+    renderRedeemTable();
+    const row = document.getElementById('redeem-row-' + code);
+    if (row) row.scrollIntoView({behavior:'smooth', block:'center'});
+    try { await navigator.clipboard.writeText(code); } catch(e) {}
+};
+
+window.editRedeem = async (oldCode) => {
+    const newCode = prompt("Edit Redeem Code", oldCode);
+    if (!newCode || newCode.trim() === "") return;
+    const finalCode = newCode.trim().toUpperCase();
+    if (finalCode === oldCode) return;
+    if (redeemData[finalCode]) {
+        alert("This Redeem Code already exists!");
+        return;
+    }
+    const oldData = redeemData[oldCode] || {status:"Unused", createdAt:new Date().toISOString()};
+    await set(ref(db, 'redeem_codes/' + finalCode), oldData);
+    await remove(ref(db, 'redeem_codes/' + oldCode));
+    if (selectedRedeemCodes[oldCode]) {
+        delete selectedRedeemCodes[oldCode];
+        selectedRedeemCodes[finalCode] = true;
+        await remove(ref(db, 'settings/selectedRedeemCodes/' + oldCode));
+        await set(ref(db, 'settings/selectedRedeemCodes/' + finalCode), true);
+    }
+};
+
+window.deleteRedeem = async (code) => {
     if(confirm("Delete this Redeem Code?")) {
-        remove(ref(db, 'redeem_codes/' + code));
+        await remove(ref(db, 'redeem_codes/' + code));
+        if (selectedRedeemCodes[code]) {
+            delete selectedRedeemCodes[code];
+            await remove(ref(db, 'settings/selectedRedeemCodes/' + code));
+        }
     }
 };
 
@@ -389,16 +837,28 @@ window.deleteRedeem = (code) => {
             let uc = 0, mc = 0, unfCount = 0;
 
             const sortedKeys = Object.keys(masterData).sort((a, b) => {
-                const hwA = (masterData[a].activeHardwareId || 'UNDEFINED').toUpperCase();
-                const hwB = (masterData[b].activeHardwareId || 'UNDEFINED').toUpperCase();
+                const dataA = masterData[a] || {};
+                const dataB = masterData[b] || {};
+                const onlineA = isOnlineNow(dataA) ? 1 : 0;
+                const onlineB = isOnlineNow(dataB) ? 1 : 0;
+                if (onlineA !== onlineB) return onlineB - onlineA;
+
+                const dateA = getLastPingDate(dataA);
+                const dateB = getLastPingDate(dataB);
+                const timeA = dateA ? dateA.getTime() : 0;
+                const timeB = dateB ? dateB.getTime() : 0;
+                if (timeA !== timeB) return timeB - timeA;
+
+                const hwA = (dataA.activeHardwareId || 'UNDEFINED').toUpperCase();
+                const hwB = (dataB.activeHardwareId || 'UNDEFINED').toUpperCase();
                 if (hwA === 'UNDEFINED' && hwB !== 'UNDEFINED') return 1;
                 if (hwA !== 'UNDEFINED' && hwB === 'UNDEFINED') return -1;
-                return 0;
+                return String(a).localeCompare(String(b));
             });
 
             sortedKeys.forEach((id) => {
                 const data = masterData[id];
-                const searchStr = `${id} ${data.studioName || ''} ${data.activeHardwareId || ''}`.toLowerCase();
+                const searchStr = `${id} ${data.studioName || ''} ${data.whatsapp || ''} ${data.email || ''} ${data.address || ''} ${data.softwareName || ''} ${data.status || ''} ${data.source || ''} ${data.activeHardwareId || ''} ${data.hwid_1 || ''} ${data.hwid_2 || ''} ${data.redeemToken || ''} ${data.activationDate || ''} ${data.lastPing || ''}`.toLowerCase();
                 if (filter && !searchStr.includes(filter)) return;
 
                 const hwText = data.activeHardwareId || 'UNDEFINED';
@@ -407,29 +867,19 @@ window.deleteRedeem = (code) => {
                 if(isUndefined) unfCount++;
 
                 const lastPingStr = data.lastPing;
-                let displayPing = lastPingStr || '---';
+                let displayPing = formatDateTimeClean(lastPingStr);
                 let statusColor = 'text-slate-500'; 
                 let pulseClass = '';
 
-                if (lastPingStr) {
-                    try {
-                        const parts = lastPingStr.match(/(\d+)-(\d+)-(\d+) (\d+):(\d+):(\d+) (AM|PM)/);
-                        if (parts) {
-                            let day = parseInt(parts[1]), month = parseInt(parts[2]) - 1, year = parseInt(parts[3]);
-                            let hours = parseInt(parts[4]), minutes = parseInt(parts[5]), seconds = parseInt(parts[6]), ampm = parts[7];
-                            if (ampm === "PM" && hours < 12) hours += 12;
-                            if (ampm === "AM" && hours === 12) hours = 0;
-                            const pingDate = new Date(year, month, day, hours, minutes, seconds);
-                            const diffInSeconds = Math.floor((new Date() - pingDate) / 1000);
-                            if (diffInSeconds >= 0 && diffInSeconds < 300) {
-                                statusColor = 'text-emerald-400';
-                                pulseClass = 'animate-pulse';
-                            }
-                        }
-                    } catch (e) { console.error(e); }
+                const rowOnline = isOnlineNow(data);
+                if (rowOnline) {
+                    statusColor = 'text-emerald-400';
+                    pulseClass = 'animate-pulse';
                 }
 
-                const timeHtml = `<td class="${statusColor} font-bold mono text-[13px] whitespace-nowrap"><i class="fas fa-satellite-dish ${pulseClass} mr-1"></i> ${displayPing}</td>`;
+                const timeHtml = `<td class="${statusColor} last-check-cell mono"><i class="fas fa-satellite-dish ${pulseClass} mr-2"></i>${displayPing}</td>`;
+                const rowClass = rowOnline ? 'online-row' : '';
+                const statusBadgeClass = rowOnline ? 'status-badge online-badge' : 'status-badge offline-badge';
 
                 if (data.source !== "migration") {
                     uc++;
@@ -486,7 +936,19 @@ tbody.insertAdjacentHTML('beforeend', `
 
         window.deleteNode = (id) => { if(confirm("Confirm Delete Node?")) remove(ref(db, 'licenses/' + id)); };
 
-        document.getElementById('deployBtn').onclick = () => {
+        
+        window.markRedeemAsUsed = async (redeemCode, licenseKey, studioName, whatsappNo) => {
+            if(!redeemCode) return;
+            await update(ref(db, 'redeem_codes/' + redeemCode), {
+                status: "Used",
+                usedByLicense: licenseKey || "",
+                usedByStudio: studioName || "",
+                usedByWhatsapp: whatsappNo || "",
+                usedAt: new Date().toISOString()
+            });
+        };
+
+document.getElementById('deployBtn').onclick = () => {
             const key = document.getElementById('licKey').value.trim();
             if(!key) return;
             const now = new Date();
